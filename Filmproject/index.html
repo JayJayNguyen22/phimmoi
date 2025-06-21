@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>phimmoi</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: black;
+            margin: 0;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+
+        }
+        .navbar h1 {
+            color: white;
+            margin: 0;
+            
+        }
+        .nav-link a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            padding: 0px 10px;
+        }
+        .banner {
+            background-image: url("https://image.tmdb.org/t/p/original/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg");
+            background-size: cover;
+            background-position: center;
+            padding: 200px 20px;
+            text-shadow: 0 0 5px #000;
+        }
+        .banner h2 {
+            font-size: 2rem;
+            margin: 0;
+        }
+        .movies {
+            display: flex;
+            overflow-x: hidden;
+            overflow-y: hidden;
+            gap: 10px;
+        }
+        .row {
+            padding: 20px;
+        }
+        .row h3 {
+            margin-bottom: 10px;
+        }
+        .movie {
+            min-width: 150px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+
+        }
+        .movie img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        .movie:hover {
+            transform: scale(1.1);
+        }
+
+
+        
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Phimmoi</h1>
+        <div class="nav-link">
+            <a href="">Home</a>
+            <a href="">Movies</a>
+            <a href="">My List</a>
+        </div>
+    </div>
+    <div class="banner">
+        <h2>Fight Club</h2>
+        <p>Rule #1: You don't talk about Fight Club</p>
+    </div>
+    <div class="row">
+        <h3>Popular Movies</h3>
+        <div class="movies" id="movieRow"></div>
+    </div>
+    <script>
+        const movies = [ 
+            {title: "Vaqish", image: "https://image.tmdb.org/t/p/w300/AoWY1gkcNzabh229Icboa1Ff0BM.jpg"},
+            {title: "Interstella", image: "https://image.tmdb.org/t/p/w300/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg"},
+            {title: "Joker", image: "https://image.tmdb.org/t/p/w300/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg"},
+            {title: "Tenet", image: "https://image.tmdb.org/t/p/w300/k68nPLbIST6NP96JmTxmZijEvCA.jpg"},
+            {title: "The Batman", image: "https://image.tmdb.org/t/p/w300/74xTEgt7R36Fpooo50r9T25onhq.jpg"}
+        ];
+        const movieRow = document.getElementById('movieRow');
+        movies.forEach(movie =>{
+            const div = document.createElement('div');
+            div.className = 'movie';
+            div.innerHTML = `<img src="${movie.image}" alt="${movie.title}" title="${movie.title}" />`;
+            movieRow.appendChild(div);
+
+        })
+
+    </script>
+    
+</body>
+</html>
